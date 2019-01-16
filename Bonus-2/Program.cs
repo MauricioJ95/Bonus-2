@@ -22,20 +22,13 @@ namespace Bonus_2
 
             if (fail = DateTime.TryParse(Console.ReadLine(), out dOB))
             {
-                Console.WriteLine("Good to go!");
+                TimeSpan age = DateTime.Now - dOB;
+                Console.WriteLine(name + " is {0} Years and {1} Days old!", (int)(age.Days / 365), age.Days % 365);
             }
             else
             {
                 Console.WriteLine("That's not a valid date. Try again.");
             }
-
-
-            if (DateTime.TryParse(Console.ReadLine(), out dOB))
-            {
-                TimeSpan age = DateTime.Now - dOB;
-                Console.WriteLine(name + " is {0} Years and {1} Days old!", (int)(age.Days / 365), age.Days % 365);
-            }
-
             run = Continue();
 
         }
