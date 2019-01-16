@@ -12,25 +12,24 @@ namespace Bonus_2
         {
 
             bool run = true;
-            bool fail;
-
+            while (run == true)
+            {
             Console.WriteLine("Please enter your name.");
             string name = Console.ReadLine();
+                Console.WriteLine("Please enter your birthdate. (MM/DD/YYYY)");
+                DateTime dOB;
 
-            Console.WriteLine("Please enter your birthdate. (MM/DD/YYYY)");
-            DateTime dOB;
-
-            if (fail = DateTime.TryParse(Console.ReadLine(), out dOB))
-            {
-                TimeSpan age = DateTime.Now - dOB;
-                Console.WriteLine(name + " is {0} Years and {1} Days old!", (int)(age.Days / 365), age.Days % 365);
+                if (DateTime.TryParse(Console.ReadLine(), out dOB))
+                {
+                    TimeSpan age = DateTime.Now - dOB;
+                    Console.WriteLine(name + " is {0} Years and {1} Days old!", (int)(age.Days / 365), age.Days % 365);
+                }
+                else 
+                {
+                    Console.WriteLine("That's not a valid date. Try again."); 
+                }
+                run = Continue();
             }
-            else
-            {
-                Console.WriteLine("That's not a valid date. Try again.");
-            }
-            run = Continue();
-
         }
         public static bool Continue()
         {
@@ -53,7 +52,6 @@ namespace Bonus_2
             }
             return shouldContinue;
         }
-
     }
 }
 
